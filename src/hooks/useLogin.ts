@@ -20,6 +20,6 @@ export const useUser = () => {
 
 	return {
 		user,
-		setUser: setUser,
+		setUser: saveUser,
 	}
 }

@@ -1,7 +1,11 @@
 import {useState} from 'react'
-import {Button} from 'src/components/common/formElements/Button/Button'
 
 import data from 'src/data/users.json'
+import {BlockBox} from './../../common/formElements/BlockBox/BlockBox'
+
+import s from './AuthForm.module.css'
+import {FormikButton} from './../../common/formElements/FormikButton/FormikButton'
+import {CustomInput} from './../../common/formElements/Input/Input'
 
 export type RoleType = 'admin' | 'user'
 
@@ -26,40 +30,56 @@ export const AuthForm: React.FC<{setCurrentUser: (a: UserType) => void}> = ({set
 	const [username, setUserName] = useState('')
 	const [password, setPassword] = useState('')
 
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+	const [usernameError, setUsernameError] = useState('')
+	const [passwordError, setPasswordError] = useState('')
+
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		const user = checkLoginAndPassword(username, password)
 
+		const emptyLogin = username.length === 0
+		const emptyPassword = username.length === 0
 		if (user) {
-			localStorage.setItem(
-				'user',
-				JSON.stringify({login: user.login, role: user.role, id: user.id}),
-			)
+			// функция из хука setUser, ставит его в локальном стейте + добавляет в локал стораж
 			setCurrentUser(user)
+			return
+		} else if (emptyLogin || emptyPassword) {
+			emptyLogin && setUsernameError('Username is required')
+			emptyPassword && setPasswordError('Password is required')
+		} else {
+			setPasswordError('')
+			setUsernameError('Invalid login information')
+			setPassword('')
 		}
 	}
 
 	return (
-		<div className='login-wrapper'>
-			<form onSubmit={handleSubmit}>
-				<label>
-					<p>Username</p>
-					<input
-						type='text'
-						onChange={(e) => setUserName(e.target.value)}
-					/>
-				</label>
-				<label>
-					<p>Password</p>
-					<input
-						type='password'
-						onChange={(e) => setPassword(e.target.value)}
-					/>
-				</label>
-				<Button>
-					<button>Submit</button>
-				</Button>
-			</form>
-		</div>
+		<form
+			className={s.Root}
+			onSubmit={handleSubmit}
+		>
+			<BlockBox
+				errorMessage={usernameError}
+				title='Username'
+			>
+				<CustomInput
+					value={username}
+					type='text'
+					onChange={(e) => setUserName(e.target.value)}
+				/>
+			</BlockBox>
+			<BlockBox
+				errorMessage={passwordError}
+				title='Password'
+			>
+				<CustomInput
+					value={password}
+					type='password'
+					onChange={(e) => setPassword(e.target.value)}
+				/>
+			</BlockBox>
+
+			<FormikButton title='Login' />
+		</form>
 	)
 }
