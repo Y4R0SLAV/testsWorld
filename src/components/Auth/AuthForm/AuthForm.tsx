@@ -6,14 +6,10 @@ import {BlockBox} from './../../common/formElements/BlockBox/BlockBox'
 import s from './AuthForm.module.css'
 import {FormikButton} from './../../common/formElements/FormikButton/FormikButton'
 import {CustomInput} from './../../common/formElements/Input/Input'
+import {UserStateData} from 'src/redux/reducers/app'
 
-export type RoleType = 'admin' | 'user'
-
-export type UserType = {
-	login: string
-	password?: string
-	role: RoleType
-	id: number
+interface UserType extends UserStateData {
+	password: string
 }
 
 const users = data.users as Array<UserType>
@@ -26,7 +22,9 @@ const checkLoginAndPassword = (login: string, password: string) => {
 	return false
 }
 
-export const AuthForm: React.FC<{setCurrentUser: (a: UserType) => void}> = ({setCurrentUser}) => {
+export const AuthForm: React.FC<{setCurrentUser: (a: UserStateData) => void}> = ({
+	setCurrentUser,
+}) => {
 	const [username, setUserName] = useState('')
 	const [password, setPassword] = useState('')
 
@@ -40,8 +38,8 @@ export const AuthForm: React.FC<{setCurrentUser: (a: UserType) => void}> = ({set
 		const emptyLogin = username.length === 0
 		const emptyPassword = username.length === 0
 		if (user) {
-			// функция из хука setUser, ставит его в локальном стейте + добавляет в локал стораж
-			setCurrentUser(user)
+			let saveUser = {id: user.id, role: user.role, login: user.login}
+			setCurrentUser(saveUser)
 			return
 		} else if (emptyLogin || emptyPassword) {
 			emptyLogin && setUsernameError('Username is required')

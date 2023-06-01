@@ -1,0 +1,24 @@
+.Root {
+	border: 1px solid red;
+	margin-top: 10px;
+	min-width: 600px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	cursor: pointer;
+	transition: all ease-in-out 0.2s;
+}
+
+.Root:hover {
+	transform: scale(1.01);
+}
+
+.title {
+	width: 100%;
+	font-size: 18px;
+	padding: 5px 0;
+	border-bottom: 1px solid red;
+	text-align: center;
+}

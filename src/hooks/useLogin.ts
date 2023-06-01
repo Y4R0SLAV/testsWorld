@@ -1,9 +1,12 @@
+import {useDispatch} from 'react-redux'
 import {useState} from 'react'
-import {UserType} from 'src/components/Auth/AuthForm/AuthForm'
+import {UserStateData, setUserData} from 'src/redux/reducers/app'
 
 export const useUser = () => {
+	const dispatch = useDispatch()
+
 	const getUser = () => {
-		const userString = localStorage.getItem('user')
+		const userString = sessionStorage.getItem('user')
 		if (userString) {
 			const user = JSON.parse(userString)
 			return user
@@ -13,8 +16,9 @@ export const useUser = () => {
 
 	const [user, setUser] = useState(getUser())
 
-	const saveUser = (user: UserType) => {
-		localStorage.setItem('user', JSON.stringify(user))
+	const saveUser = (user: UserStateData) => {
+		dispatch(setUserData(user))
+		sessionStorage.setItem('user', JSON.stringify(user))
 		setUser(user)
 	}
 

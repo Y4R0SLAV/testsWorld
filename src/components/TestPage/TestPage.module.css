@@ -1,0 +1,22 @@
+.Root {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.title {
+	font-size: 24px;
+	margin: 10px 0;
+}
+
+.filters {
+	position: relative;
+}
+
+.date {
+	position: absolute;
+	cursor: pointer;
+	user-select: none;
+	right: -70px;
+	top: 12px;
+}
