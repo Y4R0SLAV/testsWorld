@@ -1,0 +1,9 @@
+.Root {
+	padding: 10px;
+	color: var(--footer-content-color);
+	display: flex;
+	justify-content: center;
+	background: var(--footer-bg-color);
+
+	transition: background 0.25s ease-in-out color 0.25s ease-in-out;
+}

@@ -1,6 +1,6 @@
 import {useDispatch} from 'react-redux'
 import {useState} from 'react'
-import {UserStateData, setUserData} from 'src/redux/reducers/app'
+import {UserStateData, setUserData, setUserUndefined} from 'src/redux/reducers/app'
 
 export const useUser = () => {
 	const dispatch = useDispatch()
@@ -16,9 +16,15 @@ export const useUser = () => {
 
 	const [user, setUser] = useState(getUser())
 
-	const saveUser = (user: UserStateData) => {
-		dispatch(setUserData(user))
-		sessionStorage.setItem('user', JSON.stringify(user))
+	const saveUser = (user: UserStateData | undefined) => {
+		if (user === undefined) {
+			dispatch(setUserUndefined())
+			sessionStorage.removeItem('user')
+		} else {
+			dispatch(setUserData(user))
+			sessionStorage.setItem('user', JSON.stringify(user))
+		}
+
 		setUser(user)
 	}
 

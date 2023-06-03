@@ -11,7 +11,7 @@ export type Answer = {
 	rightOne: boolean
 }
 
-type QuestionType = ONE_ANSWER | MANY_ANSWER | NUMBER_ANSWER
+export type QuestionType = ONE_ANSWER | MANY_ANSWER | NUMBER_ANSWER
 
 export type Question = {
 	title: string

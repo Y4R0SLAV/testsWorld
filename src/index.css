@@ -18,6 +18,9 @@ body {
 	--button-padding: 5px;
 	--button-negative-padding: -5px;
 
+	--select-border-color: #368a6d;
+	--select-focus-border-color: #a6a6a6;
+
 	--theme-bg: #fff2ec;
 
 	--modal-border-color: rgb(119, 31, 31);

@@ -25,10 +25,13 @@ export const appSlice = createSlice({
 		setUserData: (state, action: PayloadAction<UserStateData>) => {
 			state.userData = action.payload
 		},
+		setUserUndefined: (state) => {
+			state.userData = undefined
+		},
 	},
 })
 
-export const {setUserData} = appSlice.actions
+export const {setUserData, setUserUndefined} = appSlice.actions
 
 export const selectUserRole = (state: RootState) => state.app.userData?.role
 

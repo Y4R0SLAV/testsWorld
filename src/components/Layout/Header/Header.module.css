@@ -1,0 +1,27 @@
+.Root {
+	background: var(--header-bg-color);
+	padding: 15px 25px;
+	font-size: 26px;
+
+	transition: background 0.25s ease-in-out;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.Root a, .pseudoA{
+	text-decoration: none;
+	color: var(--header-content-color);
+	transition: color 0.3s ease-in-out;
+}
+
+.pseudoA {
+  cursor: pointer;
+}
+
+@media (max-width: 450px) {
+	.Root {
+		padding: 10px 12px;
+		font-size: 22px;
+	}
+}
