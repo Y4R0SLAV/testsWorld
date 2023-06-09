@@ -1,0 +1,12 @@
+.Root {
+	min-width: 600px;
+	display: flex;
+	flex-direction: column;
+}
+
+.formControlButtons {
+	margin: 15px 0;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}

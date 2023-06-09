@@ -1,6 +1,6 @@
 import s from './CustomSelect.module.css'
 
-type Option = {title: string; value: string}
+export type Option = {title: string; value: string}
 
 type SelectProps = {
 	selected: Option | null
@@ -14,14 +14,15 @@ export const CustomSelect: React.FC<SelectProps> = ({
 	selected,
 	options,
 	onChange,
-	onClose,
 	defaultValue,
 }) => {
 	return (
 		<select
 			className={s.Root}
-			value={selected?.title}
-			onChange={(e) => onChange(e.currentTarget.value)}
+			value={selected?.value}
+			onChange={(e) => {
+				onChange(e.currentTarget.value)
+			}}
 		>
 			<option
 				className={s.option}

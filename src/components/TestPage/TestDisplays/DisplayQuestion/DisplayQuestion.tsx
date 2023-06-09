@@ -3,7 +3,7 @@ import {displayAnswer} from '../DisplayAnswer/DisplayAnswer'
 
 import s from './DisplayQuestion.module.css'
 
-export const displayQuestion = (question: Question) => {
+export const DisplayQuestion: React.FC<{question: Question}> = ({question}) => {
 	return (
 		<div className={s.question}>
 			<div className=''>{question.title}</div>
