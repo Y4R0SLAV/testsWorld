@@ -2,3 +2,9 @@
 	border: 1px solid red;
 	min-width: 690px;
 }
+
+.formControlButtons {
+	display: flex;
+	justify-content: space-between;
+	padding: 5px;
+}
