@@ -9,6 +9,8 @@ export type NUMBER_ANSWER = 'NUMBER_ANSWER'
 export type Answer = {
 	body: string
 	rightOne: boolean
+	id: number
+	order: number
 }
 
 export type QuestionType = ONE_ANSWER | MANY_ANSWER | NUMBER_ANSWER
@@ -17,6 +19,7 @@ export type Question = {
 	title: string
 	type: QuestionType
 	answers: Array<Answer> | number
+	id: number
 }
 
 export type Test = {
@@ -40,66 +43,93 @@ const initialState: TestsState = {
 				{
 					title: 'вопрос 1',
 					type: 'ONE_ANSWER',
+					id: 1,
 					answers: [
 						{
 							body: 'Ответ 1',
 							rightOne: false,
+							id: 1,
+							order: 1,
 						},
 						{
 							body: 'Ответ 2',
 							rightOne: false,
+							id: 2,
+							order: 2,
 						},
 						{
 							body: 'Ответ 3',
 							rightOne: true,
+							id: 3,
+							order: 3,
 						},
 						{
 							body: 'Ответ 4',
 							rightOne: false,
+							id: 4,
+							order: 4,
 						},
 					],
 				},
 				{
 					title: 'вопрос 1',
 					type: 'ONE_ANSWER',
+					id: 2,
 					answers: [
 						{
 							body: 'Ответ 1',
 							rightOne: false,
+							id: 1,
+							order: 1,
 						},
 						{
 							body: 'Ответ 2',
 							rightOne: false,
+							id: 2,
+							order: 2,
 						},
 						{
 							body: 'Ответ 3',
 							rightOne: true,
+							id: 3,
+							order: 3,
 						},
 						{
 							body: 'Ответ 4',
 							rightOne: false,
+							id: 4,
+							order: 4,
 						},
 					],
 				},
 				{
 					title: 'вопрос 1',
 					type: 'ONE_ANSWER',
+					id: 3,
 					answers: [
 						{
 							body: 'Ответ 1',
 							rightOne: false,
+							id: 1,
+							order: 1,
 						},
 						{
 							body: 'Ответ 2',
 							rightOne: false,
+							id: 2,
+							order: 2,
 						},
 						{
 							body: 'Ответ 3',
 							rightOne: true,
+							id: 3,
+							order: 3,
 						},
 						{
 							body: 'Ответ 4',
 							rightOne: false,
+							id: 4,
+							order: 4,
 						},
 					],
 				},
@@ -112,22 +142,31 @@ const initialState: TestsState = {
 				{
 					title: 'вопрос 1',
 					type: 'MANY_ANSWER',
+					id: 1,
 					answers: [
 						{
 							body: 'Ответ 1',
 							rightOne: true,
+							id: 1,
+							order: 1,
 						},
 						{
 							body: 'Ответ 2',
 							rightOne: false,
+							id: 2,
+							order: 2,
 						},
 						{
 							body: 'Ответ 3',
 							rightOne: true,
+							id: 3,
+							order: 3,
 						},
 						{
 							body: 'Ответ 4',
 							rightOne: false,
+							id: 4,
+							order: 4,
 						},
 					],
 				},
@@ -140,6 +179,7 @@ const initialState: TestsState = {
 				{
 					title: 'вопрос 1 с ответом 3',
 					type: 'NUMBER_ANSWER',
+					id: 1,
 					answers: 3,
 				},
 			],

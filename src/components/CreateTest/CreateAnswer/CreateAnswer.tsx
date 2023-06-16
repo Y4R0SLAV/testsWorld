@@ -11,7 +11,7 @@ export const CreateAnswer: React.FC<{addAnswer: (a: Answer) => void}> = ({addAns
 
 	const buttonHandler = () => {
 		if (body.trim()) {
-			addAnswer({body, rightOne})
+			addAnswer({body, rightOne, id: Date.now(), order: Date.now()})
 			setAnswerBody('')
 			setRightOne(false)
 		} else {
