@@ -19,7 +19,7 @@ export const CustomSelect: React.FC<SelectProps> = ({
 	return (
 		<select
 			className={s.Root}
-			value={selected?.value}
+			value={selected?.value || ''}
 			onChange={(e) => {
 				onChange(e.currentTarget.value)
 			}}
