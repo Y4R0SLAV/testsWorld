@@ -50,7 +50,10 @@ export const QuestionForm: React.FC<{addQuestion: (q: Question) => void}> = ({ad
 			</div>
 			<ErrorMessage errorMessage={questionsError} />
 
-			<CreateQuestion selectedValue={selectedOption?.value as QuestionType | undefined} />
+			<CreateQuestion
+				setSelectedOption={setSelectedOption}
+				selectedValue={selectedOption?.value as QuestionType | undefined}
+			/>
 		</div>
 	)
 }

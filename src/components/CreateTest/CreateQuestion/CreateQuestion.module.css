@@ -1,6 +1,14 @@
 .Root {
 	border: 1px solid red;
 	min-width: 690px;
+	transform: scale(1);
+	transition: all ease-out 0.2s;
+}
+
+.hide {
+	transform: scaleY(0);
+	display: inline;
+	max-height: 0;
 }
 
 .formControlButtons {
