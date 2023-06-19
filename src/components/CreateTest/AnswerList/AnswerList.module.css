@@ -1,0 +1,24 @@
+.title {
+	text-align: center;
+	padding-bottom: 5px;
+	border-bottom: 1px solid;
+}
+
+.list {
+}
+
+.item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	min-height: 40px;
+	padding: 0 5px;
+	border: 1px solid #bbb;
+	cursor: grab;
+	transition: all ease-in-out 0.2s;
+}
+
+.hover {
+	background: #eee;
+	cursor: grabbing;
+}
